@@ -31,7 +31,7 @@ typedef struct s_data
 	va_list		ap;
 	const char	*s;
 	char		*buffer;
-	int			bf_offset;
+	int			bf_iterator;
 	int			chars_written;
 	t_format	format;
 }	t_data;
