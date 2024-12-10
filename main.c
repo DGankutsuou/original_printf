@@ -20,5 +20,6 @@ int	main(void)
 	printf ("[%-10.5d]\n", 42); // zero padding by the left then space padding by right
 	printf ("[%+10.5d]\n", 42); // zero padding by the left then force sign then space padding by left
 	printf ("[%-+10.5d]\n", 42); // zero padding by the left then force sign then space padding by right
+	printf ("[%+0d]\n", 42); // zero padding by the left then force sign then space padding by right
 	return (0);
 }

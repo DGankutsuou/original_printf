@@ -36,6 +36,7 @@ typedef struct s_data
 	t_format	format;
 }	t_data;
 
-int	original_printf(const char *format, ...);
+int		original_printf(const char *format, ...);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
