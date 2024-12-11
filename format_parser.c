@@ -1,11 +1,11 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-static flags_assigner(t_data *data)
+static void flags_assigner(t_data *data)
 {
 	char	flag;
 
-	while (ft_strchr(FLAGS, *(data->s)))
+	while (ft_strchr("-0# +", *(data->s)) && *(data->s))
 	{
 		flag = *(data->s);
 		if (flag == '-')
@@ -24,7 +24,18 @@ static flags_assigner(t_data *data)
 
 static void	precision_assigner(t_data *data)
 {
-	
+	int	value;
+
+	value = 0;
+	while (ft_strchr("0123456789", *(data->s) && *(data->s)))
+		value = value * 10 + *(data->s) - '0';
+	data->format.precision = value;
+}
+
+static void conversion_assigner(t_data *data)
+{
+	if (ft_strchr("cspdiuxX%", *(data->s)) && *(data->s))
+		data->format.conversion = *(data->s);
 }
 
 int	format_parser(t_data *data)
@@ -34,4 +45,5 @@ int	format_parser(t_data *data)
 	flags_assigner(data);
 	if (*(data->s) == '.' && *(++(data->s)))
 		precision_assigner(data);
+	conversion_assigner(data);
 }

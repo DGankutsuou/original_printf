@@ -6,14 +6,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE (1<<10)
-# endif
-
-# ifndef FLAGS
-#  define FLAGS "-0# +"
-# endif
-
 typedef struct s_format
 {
 	char	minus; // hyphen
@@ -21,8 +13,9 @@ typedef struct s_format
 	char	sharp; // hash
 	char	space;
 	char	plus;
+	int		width;
 	int		precision; // period
-	char	specifier;
+	char	conversion;
 }	t_format;
 
 typedef struct s_data

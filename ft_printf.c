@@ -14,7 +14,7 @@ int	ft_printf(const char *format, ...)
 		{
 			if (format_parser(&data))
 				return (-1);
-			format_render();
+			data.chars_written += print(&data);
 		}
 		else
 			data.chars_written += ft_putchar_fd(*(data.s), 1);
