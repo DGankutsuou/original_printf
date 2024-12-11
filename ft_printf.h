@@ -1,5 +1,5 @@
-#ifndef ORIGINAL_PRINTF_H
-# define ORIGINAL_PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -21,7 +21,6 @@ typedef struct s_format
 	char	sharp; // hash
 	char	space;
 	char	plus;
-	int		width;
 	int		precision; // period
 	char	specifier;
 }	t_format;
@@ -30,13 +29,11 @@ typedef struct s_data
 {
 	va_list		ap;
 	const char	*s;
-	char		*buffer;
-	int			bf_iterator;
 	int			chars_written;
 	t_format	format;
 }	t_data;
 
-int		original_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
